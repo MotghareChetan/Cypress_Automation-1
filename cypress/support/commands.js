@@ -1,14 +1,17 @@
 /// <reference types="cypress"/>
 
-const cypress = require("cypress")
-
 Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
-    // failing the test
-    return false
-  })
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
+})
 
-  
+Cypress.Commands.add('Iframe', (iframeElem) => {
+  return cy.get(iframeElem)
+    .its('0.contentDocument.body')
+    .should('be.visible')
+    .then(cy.wrap);
+})
 
 // ***********************************************
 // This example commands.js shows you how to
@@ -35,3 +38,4 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
