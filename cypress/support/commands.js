@@ -34,7 +34,7 @@ Cypress.Commands.add("captureCompanyData", (tableSelector, technicalRating, call
       }
     })
     .then(() => {
-      callback(companiesData); // Pass the captured data to the callback
+      callback(companiesData); 
     });
 });
 

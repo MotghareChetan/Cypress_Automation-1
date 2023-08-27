@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:run:chrome": "cypress run --browser chrome --headed",
-    "cy:run:firefox": "cypress run --browser firefox --headed"
+    "cy:run:firefox": "cypress run --browser firefox --headed",
+    "cy:run:tradingview":"cypress run --browser chrome",
+    "runAll":"cypress run --browser chrome",
+    "tradingView":"cypress run --spec cypress\\e2e\\tradingview_task\\tradingView.cy.js --browser chrome"
+
   },
   "author": "Chetan",
   "license": "ISC",
