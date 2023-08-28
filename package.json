@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "cy:run": "cypress run",
+    "clean:reports": "if exist cypress\\reports rmdir /s/q cypress\\reports && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
+    "pretest": "npm run clean:reports",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run combine-reports && npm run generate-report",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:run:chrome": "cypress run --browser chrome --headed",
     "cy:run:firefox": "cypress run --browser firefox --headed",
     "cy:run:tradingview": "cypress run --browser chrome",
     "runAll": "cypress run --browser chrome",
     "tradingView": "cypress run --spec cypress\\e2e\\tradingview_task\\tradingView.cy.js --browser chrome",
-    "cy:run:parallel": "cypress-parallel -s cy:run -t 3 -d cypress\\e2e\\practice_test\\*.js "
+    "cy:run:parallel": "cypress-parallel -s cy:run -t 3 -d cypress\\e2e\\practice_test\\*.js ",
+    "cy:run:practiceTest":"cypress run --browser chrome --spec cypress\\e2e\\practice_test\\*.js"
   },
   "author": "Chetan",
   "license": "ISC",

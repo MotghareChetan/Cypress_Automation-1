@@ -19,8 +19,8 @@ describe("GET Request Tests", () => {
 
 });
 
-describe("POST and PUT Requests with Token", () => {
-    it("should authenticate, get token, and use it for PUT request", () => {
+describe.only("POST and PUT Requests with Token", () => {
+    it.only("should authenticate, get token, and use it for PUT request", () => {
         cy.request("POST", "https://restful-booker.herokuapp.com/auth", userData)
             .its("body.token").should("exist")
             .then((token) => {
