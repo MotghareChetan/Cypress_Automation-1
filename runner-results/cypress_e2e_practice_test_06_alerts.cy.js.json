@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 1,
+  "passes": 1,
+  "pending": 0,
+  "failures": 0,
+  "start": "2023-08-28T05:18:02.692Z",
+  "duration": 43129,
+  "file": "cypress\\e2e\\practice_test\\06_alerts.cy.js"
+}
